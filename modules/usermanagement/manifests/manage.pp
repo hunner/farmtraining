@@ -10,7 +10,7 @@ define usermanagement::manage(
   }
 
   if $homedir == "default" {
-    $homedir_real = "/home/${name}"
+    $homedir_real = "${usermanagement::home_base}/${name}"
   } else {
     $homedir_real = $homedir
   }

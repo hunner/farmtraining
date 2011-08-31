@@ -1,5 +1,6 @@
 class usermanagement {
-  file { '/home':
+  $home_base = '/home'
+  file { $home_base:
     ensure => directory,
     owner  => 'root',
     group  => 'root',

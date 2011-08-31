@@ -1,3 +1,4 @@
+include usermanagement
 usermanagement::manage { "elvis":
   ensure => present,
 }
