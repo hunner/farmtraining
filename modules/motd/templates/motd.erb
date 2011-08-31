@@ -1,0 +1,10 @@
+Computer name is: <%= hostname %>
+Computer domain is: <%= domain %>
+Operating system is: <%= operatingsystem %>
+Free memory is: <%= memoryfree %>
+Interfaces:
+<% interfaces.split(',').each do |interface| -%>
+<% if has_variable?("ipaddress_" + interface) then -%>
+  <%= interface %>:  	<%= eval("ipaddress_" + interface) %>
+<% end -%>
+<% end -%>
