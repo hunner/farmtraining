@@ -1,9 +1,13 @@
-define usermanagment::manage(
+define usermanagement::manage(
     $ensure,
     $homedir="default",
     $group="/default/",
     $shell='/bin/bash'
   ) {
+
+  if $name == 'root' {
+    fail("Can't manage root")
+  }
 
   if $homedir == "default" {
     $homedir_real = "/home/${name}"
@@ -30,10 +34,10 @@ define usermanagment::manage(
   }
 
   user { $name:
-    ensure  => $ensure,
-    homedir => $homedir_real,
-    gid     => $gid,
-    shell   => $shell,
+    ensure => $ensure,
+    home   => $homedir_real,
+    gid    => $gid,
+    shell  => $shell,
   }
 
   if $ensure == "present" {
