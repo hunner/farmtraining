@@ -5,6 +5,6 @@ Free memory is: <%= memoryfree %>
 Interfaces:
 <% interfaces.split(',').each do |interface| -%>
 <% if has_variable?("ipaddress_" + interface) then -%>
-  <%= interface %>:  	<%= eval("ipaddress_" + interface) %>
+	<%= interface %>: 	<%= eval("ipaddress_" + interface) %>
 <% end -%>
 <% end -%>
